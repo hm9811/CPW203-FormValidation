@@ -6,6 +6,17 @@ function main() {
     resetErrorMessages();
     isTextPresent("first-name", "Firstname is required");
     isTextPresent("last-name", "Last name is required");
+    var dobBox = document.getElementById("dob");
+    var dob = dobBox.value;
+    if (!isValidDate(dob)) {
+        var errSpan = dobBox.nextElementSibling;
+        errSpan.innerHTML = "Format should be mm/dd/yyyy";
+    }
+}
+function isValidDate(input) {
+    var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g;
+    var result = pattern.test(input);
+    return result;
 }
 function resetErrorMessages() {
     var allSpans = document.querySelectorAll("form span");

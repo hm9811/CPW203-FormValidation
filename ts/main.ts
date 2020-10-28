@@ -10,7 +10,25 @@ function main():void {
     isTextPresent("first-name", "Firstname is required");
     isTextPresent("last-name", "Last name is required");
 
+    //Validate date
+    let dobBox = <HTMLInputElement>document.getElementById("dob");
+    let dob = dobBox.value;
+    if(!isValidDate(dob)){
+        let errSpan = dobBox.nextElementSibling;
+        errSpan.innerHTML = "Format should be mm/dd/yyyy";
+    }
+
 }
+
+function isValidDate(input:string):boolean{
+    // Validating mm/dd/yyyy and m/d/yyyy
+    // \d{1,2}\/\d{1,2}\/\d{4}
+    let pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/g
+    let result = pattern.test(input);
+
+    return result;
+}
+
 /**
  * Resets all the spans back to the default text
  */
@@ -26,6 +44,7 @@ function resetErrorMessages():void{
         }
     }
 }
+
 /**
  * Returns true if the text box with the given id
  * has some text inside it
