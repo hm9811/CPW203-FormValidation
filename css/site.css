@@ -2,6 +2,33 @@ form span{
     color:red;
 }
 
+button{
+    padding: .75em;
+    border-radius: .3em;
+    background-color: darkgreen;
+    color: rgb(162, 136, 224);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(2, 59, 12);
+
+}
+
+body{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+h1{
+    text-align: center;
+}
+
+h1, form label, form button, form input {
+    font-family: 'Indie Flower', cursive;
+}
+
 input[type=text]{
     margin-bottom: 1em;
 
